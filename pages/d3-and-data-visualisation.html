@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>d3 and Data visualisation</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">Data Eng blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="../pages/d3-and-data-visualisation.html">d3 and Data visualisation</a></li>
+                    <li><a href="../pages/devops-micro-services.html">DevOps Micro Services</a></li>
+                    <li><a href="../pages/spark.html">SPARK</a></li>
+                    <li><a href="../category/test.html">Test</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">d3 and Data visualisation</h1>
+    
+    <p>ctrl shift F reindent</p>
+<h2>What is Data Viz?</h2>
+<ul>
+<li>mapping from DATA -&gt; VISUAL ELEMENTS</li>
+<li>exploratory: allow users to connect things in interesting ways</li>
+<li>explanatory: know audience and uses<ul>
+<li>elimintae clutter</li>
+<li>use colour size styles, prioritise</li>
+<li>
+<h2>story</h2>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Types of plots</h2>
+<ul>
+<li>
+<p>slopegraph</p>
+<ul>
+<li>two sets points: compare groups or compare over time</li>
+<li>slopes convey a lot very quickly</li>
+</ul>
+</li>
+<li>
+<p>plotting 3D - z dimensions; "Planar dimensions"</p>
+<ul>
+<li>Retinal variables: Nominal(size, colour hue, shape, texture);</li>
+<li>Ordered Data (size, saturation, orientation)</li>
+<li>
+<h2>https://www.udacity.com/course/viewer#!/c-ud507/l-3068848585/e-3095208721/m-3095208722</h2>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Key variables and Ranking of Encodings</h2>
+<ul>
+<li>position is best</li>
+<li>remember that the different ways of encoding variables display visually can be prioritised</li>
+<li>Variables + Data Types + Visual Encodings = Effective?</li>
+<li>Double Encoding to highlight stuff</li>
+<li>logarithmic useful to aid interpretation/clarity</li>
+</ul>
+<h2>Animation</h2>
+<p>Can highlight Change very well, e.g. increases, decreases (Eg First day pop of Stock IPOs). Better than using a z-axis.</p>
+<h2>D3 - Data Driven Documents</h2>
+<p>Book: http://140.112.12.21/vie2015/getting_started_with_d3.pdf
+Book: http://chimera.labs.oreilly.com/books/1230000000345/ch01.html</p>
+<ul>
+<li>leverages SVG, DOM, JS, CSS , HTML</li>
+<li>benefits from advance of Web standards tech</li>
+<li>mid-level graphing library</li>
+<li>more abstract/simpler are built on D3:<ul>
+<li>Rickshaw: for specific type of data: Time-series/streaming data</li>
+<li>Dimple.js, NVD3: both charting libraries</li>
+<li>Raw - D3; Even more abstracted (interactive charting)</li>
+<li>Tableau or Chartio: good for dashboards; predefined; useful for 90%.</li>
+<li>
+<h2>flexibility VS productivity trade-off</h2>
+</li>
+</ul>
+</li>
+<li>binds data to the DOM (Eg JSON represents a row of Data)
+(interactive)</li>
+<li>
+<h2>DOM is abstract representation of HTML source</h2>
+code samples: https://github.com/alignedleft/d3-book</li>
+</ul>
+<h3>Syntax for use in Console with D3</h3>
+<div class="highlight"><pre>document.get TAB
+document.querySelector(&#39;.some jquery css like identifier&#39;)
+    d3.select() // returns array of D3 objects
+    var parent_el = d3.select(&#39;blah&#39;)
+</pre></div>
+
+
+<ul>
+<li>nesting selection: http://bost.ocks.org/mike/nest/ https://javadude.wordpress.com/2012/06/13/d3-js-playing-with-selections/</li>
+<li>
+<h2>want to maintain context sometime so do selectAll('tbody tr').selectAll('td') therefore</h2>
+</li>
+</ul>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="#">Internal Link placeholder :)</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://instagram.com/battez">Instagram</a></li>
+                            <li><a href="http://twitter.com/battez">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
