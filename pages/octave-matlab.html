@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Octave MATLAB</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">Data Eng blog </a></h1>
+                <nav><ul>
+                    <li><a href="../pages/d3-and-data-visualisation.html">d3 and Data visualisation</a></li>
+                    <li><a href="../pages/devops-micro-services.html">DevOps Micro Services</a></li>
+                    <li><a href="../pages/javascript-notes.html">Javascript notes</a></li>
+                    <li class="active"><a href="../pages/octave-matlab.html">Octave MATLAB</a></li>
+                    <li><a href="../pages/programming-languages-data-eng.html">programming-languages-data-eng</a></li>
+                    <li><a href="../pages/spark.html">SPARK</a></li>
+                    <li><a href="../category/test.html">Test</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">Octave MATLAB</h1>
+    
+    <h1>octave / MATLAB useful</h1>
+<h2>metadata</h2>
+<ul>
+<li>whos</li>
+<li>size &amp; length</li>
+<li>clear my_variable</li>
+<li>v = prices(1:10) % first 10 elements...</li>
+<li>save helloworld.txt v -ascii % save as ascii human text</li>
+<li>save helloworld.mat v</li>
+<li>A = [1 2; 3 4; 5 6;]</li>
+<li>A(2,:) % every element on second row</li>
+<li>A([1 3], : ) % 1 2 and 5 6</li>
+<li>A = [A, [10; 10; 10]] % append a column to A</li>
+<li>A(:) % put all elements of A into a single col vector</li>
+<li>to merge matrices do either C = [A; B] or C = [A B]</li>
+<li>v = [1; 2; 3]</li>
+<li>1 ./ v % make it "one over"</li>
+<li>e.g. [1.000; 0.5; 0.333]</li>
+<li>the period . means it is a element-wise operation generally</li>
+<li>log(v) and exp(v) and abs(v) and max(v) then you can use [val, ind] = max(v)</li>
+<li>v + ones(length(v), 1) % increment an n x 1 vector</li>
+<li>v + 1 would do the same</li>
+<li>a &lt; 3 % redoes vector as boolean 1 0 accordingly</li>
+<li>can also do find(a &lt; 3)</li>
+<li>magic(3) % useful for quick make a matrix sudoku! or rand(3)</li>
+<li>sum(a) prod(a) floor(a) ceil(a)</li>
+<li>max(A, [], 1) % col maxes as a row</li>
+<li>max(A, [], 2) % row maxes as a column</li>
+<li>sum(A, 1) and sum(A, 2) % sums up the cols and rows repsectively</li>
+<li>invert matrix with pinv(A) % pseduo inverse</li>
+</ul>
+<p>x = 10 x 1
+x' = 1 x 10</p>
+<h2>Plotting</h2>
+<p>PLOT PLOT PLOT! to get to grips with algorithms
+- hold on; % overlay plots
+- print -dpng "myplot.png"
+- use figure(1) etc to specify which plot goes where:
+- figure(1); plot(x, y1); figure(2); plot(x, y2)
+- clf; % clears the figure
+- subplot(1,2,1); % divides to 1 x 2 grid
+- plot(x, y1); % goes in first subdivision
+- subplot(1,2,2)
+- plot(x, y2) % goes in second
+- axis[min x max x min y max y] % axis[0 10 -5 5]
+- show a matrix as colors with imagesc(A), colorbar, colormap gray;</p>
+<h2>structures</h2>
+<ul>
+<li>function [y1, y2] = squareAndCubeThis(x)</li>
+<li>allows ^ to return mutiple values...</li>
+</ul>
+<h3>vectorization</h3>
+<ul>
+<li>high performance numerical linear algebra libraries writeen by PhDs etc useful - can reduce amount of coded needed also.</li>
+</ul>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="#banner">back to top</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://twitter.com/battez">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
