@@ -14,6 +14,7 @@
         <header id="banner" class="body">
                 <h1><a href="../">Data Eng blog </a></h1>
                 <nav><ul>
+                    <li><a href="../pages/data-mining.html">Data Mining</a></li>
                     <li><a href="../pages/d3-and-data-visualisation.html">d3 and Data visualisation</a></li>
                     <li><a href="../pages/devops-micro-services.html">DevOps Micro Services</a></li>
                     <li class="active"><a href="../pages/javascript-notes.html">Javascript notes</a></li>
@@ -26,10 +27,124 @@
 <section id="content" class="body">
     <h1 class="entry-title">Javascript notes</h1>
     
-    <h2>Environment &amp; Functions</h2>
+    <p>Useful reference of JS keywords --
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects</a></p>
+<h2>Environment &amp; Functions</h2>
 <p>The set of variables that are defined; many are there by default in .js</p>
-<p>Functions are values: special ones constituting piece of program.</p>
+<ul>
+<li>
 <p>Expressions: result in values.</p>
+</li>
+<li>
+<p>Functions are values: special ones constituting piece of program.</p>
+<ul>
+<li>var func = function()... and function func()... are the same except the latter will be callable even by code above it! (NB only use it in the outermost block, as it gets confusing)</li>
+</ul>
+</li>
+<li>
+<p>Call Stack: place where context is stored for flow. </p>
+<ul>
+<li>Each time a function is called, the current context is put on the top of this stack.</li>
+</ul>
+</li>
+<li>Javascript has Optional Arguments: doesn't force required no. parameters. Be careful.</li>
+</ul>
+<h3>Closure</h3>
+<p>Ability to reference a specific instance of local variables - in an enclosing function. It essentially has access to the enclosing function's <em>Scope chain</em>. Includes its parameters.</p>
+<p>A function that closes over some local variables is called a <em>closure</em>
+example: <a href="http://javascriptissexy.com/understand-javascript-closures-with-ease">http://javascriptissexy.com/understand-javascript-closures-with-ease</a></p>
+<ul>
+<li>Closures have access to the outer function’s variable even after the outer function returns</li>
+<li>Closures store references to the outer function’s variables; they do not store the actual value.</li>
+<li>interesting: when value of the outer function’s variable changes before the closure is called.<ul>
+<li>private variables example first demonstrated by Douglas Crockford </li>
+</ul>
+</li>
+<li>Because closures have access to the updated values of the outer function’s variables, can get bugs when outer function’s variable changes with a for loop. </li>
+<li>think of the return function () as <em>freezing</em> the code for later use</li>
+</ul>
+<h3>Recursion</h3>
+<p>A function that calls itself: <em>recursive</em>
+e.g function power () base, exponent </p>
+<p>Can be a bit slow compared to basic loops though.</p>
+<h2>OOP in js</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript</a> nice explanations</p>
+<h3>standard style</h3>
+<p>classes etc</p>
+<h3>Prototype-based (classless style)</h3>
+<p>Accomplish the behavior then re-use it</p>
+<h3>Defining</h3>
+<p>no <em>class</em> keyword in js so just define as a function:</p>
+<p><code>var Person = function () {};</code></p>
+<h3>Properties</h3>
+<p>Almost all js values have properties:
+- not <em>undefined</em> or <em>null</em>
+- eg. null.length// error</p>
+<p>Properties are variables contained in the class; every instance of the object has those properties. Properties are set in the constructor (function) of the class so that they are created on each instance.</p>
+<p>The keyword this, which refers to the current object, lets you work with properties from within the class.</p>
+<h2>More on Objects &amp; iteration</h2>
+<p>everything except </p>
+<div class="highlight"><pre>number, boolean, null, string, undefined
+</pre></div>
+
+
+<p>are objects:
+- <strong><em>objects are containers of properties;</em></strong> class-free
+- properties have a name and a value</p>
+<div class="highlight"><pre>myObj.doesnt_exist // returns undefined
+myObj.doesnt_exist.some_val // throws exception
+</pre></div>
+
+
+<p>Can guard against this returning a <strong><em>TypeError</em></strong> by using <strong><em>&amp;&amp;</em></strong></p>
+<h4>Objects are passed around by reference - never copied!</h4>
+<h4>Objects are all linked to Object.prototype also.</h4>
+<p>Crockford JGP book uses a custom "beget" method to access.</p>
+<p>If a new property is added to the prorotype, that property will be visible in all objects based on that prototype.
+NB use .hasOwnProperty("some_property") to only check the object; not its prototype.</p>
+<p>Use <strong><em>for in</em></strong> to loop over properties, in conjunction with this: (order insensitive!)</p>
+<p>Iterating over members of a dictionary is not a trivial task, since iterating over objects can also yield members who don't actually belong to an object. Therefore, we must use the <strong><em>hasOwnProperty</em></strong> method to check that the member in fact belongs to the object.</p>
+<div class="highlight"><pre>for (var member in personObject)
+{
+    if (personObject.hasOwnProperty(member))
+    {
+        console.log(&quot;the member &quot; + member + &quot; of personObject is &quot; + personObject[member])
+    }
+}
+</pre></div>
+
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty</a></p>
+<p><strong><em>NB</em></strong> compare with <strong>for .. in</strong> loops</p>
+<p>JavaScript uses functions as classes to create objects using the new keyword. </p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">firstName</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span>
+
+<span class="kd">var</span> <span class="nx">myPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<h3>Function Objects</h3>
+<p>functions in js are objects!
+- Function.prototype &gt; links to Object.prototype
+- has hidden property of context: what is used in <strong><em>closures</em></strong>
+- also of code for the functions behaviour
+- extra prototype property: distinct from Function.prototype... has a object with <strong><em>constructor</em></strong>  property whose value is the function</p>
+<h2>Math fns - useful:</h2>
+<p>Math.abs calculates the absolute value of a number
+Math.exp calculates e to the power of a number
+Math.pow(x,y) calculates the result of x to the power of y
+Math.floor removes the fraction part from a number
+Math.random() will give a random number x and 0&lt;=x&lt;1</p>
+<h2>Contexts - changing</h2>
+<p>To bind a function to an object and make it an object method, we can use the bind() function. </p>
+<div class="highlight"><pre>myFunction.bind(someObject);
+</pre></div>
+
+
+<p>to attach a function to a different context, use the call() and apply() functions to call a function as if it was bound to an object. 
+For example, let's call printName with person as the context using the call method:</p>
+<div class="highlight"><pre>printName.call(person);      // prints out &quot;John&quot;
+</pre></div>
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">

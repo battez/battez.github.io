@@ -14,6 +14,7 @@
         <header id="banner" class="body">
                 <h1><a href="../">Data Eng blog </a></h1>
                 <nav><ul>
+                    <li><a href="../pages/data-mining.html">Data Mining</a></li>
                     <li><a href="../pages/d3-and-data-visualisation.html">d3 and Data visualisation</a></li>
                     <li class="active"><a href="../pages/devops-micro-services.html">DevOps Micro Services</a></li>
                     <li><a href="../pages/javascript-notes.html">Javascript notes</a></li>
@@ -31,29 +32,71 @@
 $ source activate pelican1</p>
 <p>To deactivate this environment, use:
 $ source deactivate</p>
-<h1>Devops and microservices</h1>
+<h1>Devops and Micro-services</h1>
 <p>Reading List in MyDundee</p>
+<p>Project build a Netflix</p>
 <p>Docker &amp; Vagrant online. DevOps dummies book (IBM bias)
 Week 2: devops read and below.</p>
-<p><a href="https://www.linkedin.com/pulse/get-rid-bottlenecks-devops-morna-simpson">https://www.linkedin.com/pulse/get-rid-bottlenecks-devops-morna-simpson</a>
-Q: is it a set of skills or a methodology?</p>
+<p><a href="https://www.linkedin.com/pulse/get-rid-bottlenecks-devops-morna-simpson">https://www.linkedin.com/pulse/get-rid-bottlenecks-devops-morna-simpson</a></p>
+<h3>Q: is it a set of skills or a methodology?</h3>
+<ul>
+<li>skills<ul>
+<li>communication / soft skills</li>
+<li>scripting<ul>
+<li>eg Vagrant / Docker</li>
+<li>custom scripting</li>
+<li>release script</li>
+<li>eg instaCluster - use Docker</li>
+</ul>
+</li>
+<li>sys admin eg linux console or powershell</li>
+<li>monitoring process skills<ul>
+<li>need to be able to interrogate and hook into processes</li>
+<li>task manager <ul>
+<li>resource </li>
+<li>log files / auditing<ul>
+<li>JMX eg in Java - monitor objects usage etc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>development<ul>
+<li>continuous integration/deployment</li>
+<li>Agile roles<ul>
+<li>product owner</li>
+<li>scrum master</li>
+<li>devs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <p>Moving towards no-ops (Cockroft article)</p>
 <p>6 to 8 lectures + seminars and project.</p>
-<p>Assignment: Build a NetFlix clone. Build and resurrect infrastructure
-- Chaos Monkey - robust / testing stress-testing READ UP
-- learn to stream video (use lib)
-- user management
-    - login etc account
-    - recommendations
-    - place history
-    - subscription
-    - facebook integration
-- catalogue
-    - categories
-    - newly added
-    - popular</p>
-<h2>lecture 1 w1</h2>
-<h3>DevOps</h3>
+<h3>Assignment: Build a NetFlix clone. Build and resurrect infrastructure</h3>
+<ul>
+<li>Chaos Monkey - robust / testing stress-testing READ UP</li>
+<li>learn to stream video (use lib)</li>
+<li>user management<ul>
+<li>login etc account</li>
+<li>recommendations</li>
+<li>place history</li>
+<li>subscription</li>
+<li>facebook integration</li>
+</ul>
+</li>
+<li>catalogue<ul>
+<li>categories</li>
+<li>newly added</li>
+<li>popular</li>
+</ul>
+</li>
+</ul>
+<h2>DevOps process/workflow/roles</h2>
 <ul>
 <li>not yet widely understood as connected D &gt;&gt;&gt; MS</li>
 <li>Developer: builds application; more and more on Web</li>
@@ -94,6 +137,63 @@ Q: is it a set of skills or a methodology?</p>
 <li>cattle not pets.
 msdn - azure</li>
 </ul>
+<h2>Docker - continuous deployment and virtualisation</h2>
+<ul>
+<li>spans virtualization and deployment (config. management applications) </li>
+<li>very new, fast success; aids communication success in organisations' teams</li>
+<li>devs must understand about the complexity of the environment they are shipping into (must they?) and conversely prod. ops need to understand about the internals of what they are shipping</li>
+<li>reduces need for devs to ask for a release 1.1 of a library removes a bottleneck source.</li>
+<li>instead devs can directly update the resource set they need</li>
+<li>Docker discards entire environment of running application to make way for a new one<ul>
+<li>makes less chance for cruft causing problems</li>
+<li>makes things ultra portable</li>
+<li>thus more scalable, more reliable</li>
+</ul>
+</li>
+<li>builds myriad dependencies in one single, repeatable format. Deploy app with every single file that is needed to run it. Means app is running in the environment expect it to run in.</li>
+<li>doesn't need to replace older systems : can bind to these easily and straightforwardly, for different needs.</li>
+</ul>
+<h3>Containers</h3>
+<ul>
+<li>old linux tech, but renewed in powerful way by the choices Docker has made. </li>
+<li>diff. to virtualization - where different OS run on the host OS - Docker containers use the same kernel as the host(i.e. linux). Share resources this way so better. </li>
+<li>makes container images, encapsulating all dependencies. </li>
+<li>diff to Vagrant - only 1 OS, (V is more for devs)</li>
+</ul>
+<h2>Micro-Services</h2>
+<h3>Continuous Delivery</h3>
+<p><em>more efficiently get software into production</em> - every commit is a Release Candidate</p>
+<h2>Vagrant and Virtualization</h2>
+<h3>Build, Manage, Distribute Test &amp; Dev. environments</h3>
+<ul>
+<li>Combines with advent of the Cloud (virtualisation is foundation for AWS, Azure, and eg Linode slices etc) and brings it to Desktops. </li>
+<li>Build and configure a virtual machine for any need. </li>
+<li>Vagrant 1.0 released 2012, so relatively mature now, v2.0.x and each release is pretty stable</li>
+<li>encourages automation of dev. environments</li>
+<li>reproducible environments enables team working - just share the image</li>
+<li>devs can still develop with their own tools and editors etc, but in a consistent rapid environment.</li>
+<li>uses VirtualBox but can work with EC2, VMWare, Parallels etc</li>
+<li>
+<p>convergence of the dev. to the prod. environment parameters with the automation - valuable change</p>
+<p>vagrant up</p>
+</li>
+</ul>
+<p>Something amiss? Simply </p>
+<div class="highlight"><pre>vagrant destroy
+</pre></div>
+
+
+<p>and start over. </p>
+<h3>Configuration structure - per project</h3>
+<p>Each project has its own isolated work environment.
+its  <strong><em>Vagrantfile</em></strong> (.rb Ruby syntax)
+- text file with config
+- OS, RAM, dependendices required, network access, etc
+- version controlled
+- overhead is in setting up the Vagrantfile</p>
+<h3>InstaCluster - service co. manage the scripts</h3>
+<p>Set up Cassandra clusters etc.
+eg use DataStax devcenter to monitor, query with .cql etc</p>
 </section>
         <section id="extras" class="body">
                 <div class="blogroll">
